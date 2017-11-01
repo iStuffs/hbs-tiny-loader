@@ -1,0 +1,1 @@
+var path="templates/template.hbs",template=$.getHbs(path),data={message:"Hello hbs file!"},html=template(data);$("body").prepend(html);

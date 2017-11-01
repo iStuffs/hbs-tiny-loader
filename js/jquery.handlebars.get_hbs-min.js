@@ -1,0 +1,1 @@
+!function($,o){$.getHbs=function(n){var c=!1;return $.ajax({url:n,async:!1,dataType:"html",success:function(n){console.log("coucou"),c=o.compile(n)},error:function(o,n,c){console.error(n,": ",c)}}),c}}(jQuery,Handlebars);
