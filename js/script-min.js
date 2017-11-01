@@ -1,1 +1,1 @@
-var path="templates/template.hbs",template=$.getHbs(path),data={message:"Hello hbs file!"},html=template(data);$("body").prepend(html);
+var path="templates/template.hbs",data={message:"Hello hbs file!"},deferred=$.getHbs(path);deferred.then(function(e){var a=e(data);$("body").prepend(a)}),console.log("It's alive !!");

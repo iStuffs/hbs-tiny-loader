@@ -1,21 +1,21 @@
 (function ( $, Hbs ) {
 
     $.getHbs = function( path ) {
-
+      var d = new $.Deferred();
       var template = false;
       $.ajax(
         { url:    path,
-          async:    false,
+          async:    true, //asynchrone should be cool ^^
           dataType: 'html',
           success: function(source) {
-            console.log('coucou');
             template = Hbs.compile(source);
+            d.resolve(template)//peut-être template pourait etre utilisé dans le callback de .then
           },
           error: function(jqXHR, textStatus, errorThrown) {
             console.error(textStatus, ': ', errorThrown);
           }
         });
-        return template;
+        return d; //retourne un deferred pour le coté asynchrone
     };
 
 }( jQuery, Handlebars ));

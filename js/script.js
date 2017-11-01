@@ -1,8 +1,12 @@
 var path = 'templates/template.hbs';
 
-var template = $.getHbs(path);
 var data     = {
   message: 'Hello hbs file!'
 };
-var html     = template(data);
-$('body').prepend(html);
+
+var deferred = $.getHbs(path);
+deferred.then(function(template){
+  var html = template(data);
+  $('body').prepend(html);
+});
+console.log("It's alive !!");
